@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FROST.Utility
-{
-    public class Class1
-    {
+namespace FROST.WeixinQYH {
+    public class MailListApi {
+       
     }
 }
