@@ -84,6 +84,10 @@
       <Project>{7cb9cd70-f6c2-4381-ab44-3f71d9c6e165}</Project>
       <Name>FROST.Utility</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FROST.WeixinQYH\FROST.WeixinQYH.csproj">
+      <Project>{02aa1fb4-943c-4e51-9f8e-7fb99d9f4c6b}</Project>
+      <Name>FROST.WeixinQYH</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
