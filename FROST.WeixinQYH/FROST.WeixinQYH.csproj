@@ -48,6 +48,7 @@
     <Compile Include="MailList\Department\DepartmentResult.cs" />
     <Compile Include="MailList\MailListApi.cs" />
     <Compile Include="MailList\Member\MemberResult.cs" />
+    <Compile Include="MailList\Tag\TagResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

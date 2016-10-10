@@ -9,6 +9,80 @@ using FROST.Utility;
 namespace FROST.WeixinQYH {
     public class MailListApi {
         /// <summary>
+        /// 获取标签列表
+        /// </summary>
+        /// <param name="access_token"></param>
+        /// <returns>TagListResult</returns>
+        public static TagListResult TagList(string access_token) {
+            string url = "https://qyapi.weixin.qq.com/cgi-bin/tag/list?access_token=" + access_token;
+            return JsonConvert.DeserializeObject<TagListResult>(General.CurlByDotNet(url, CurlMethod.GET));
+        }
+        /// <summary>
+        /// 删除标签成员（返回对象并未判断【部分userid、partylist非法】的情况），要么正确，要么全错（报错）
+        /// </summary>
+        /// <param name="tma">TagUserAdd</param>
+        /// <param name="access_token"></param>
+        /// <returns>TagResult</returns>
+        public static TagResult TagDeleteMember(TagUserDelete tmd,string access_token) {
+            string url = "https://qyapi.weixin.qq.com/cgi-bin/tag/deltagusers?access_token=" + access_token;
+            return JsonConvert.DeserializeObject<TagResult>(
+                General.CurlByDotNet(url, CurlMethod.POST, JsonConvert.SerializeObject(tmd)));
+        }
+        /// <summary>
+        /// 增加标签成员（返回对象并未判断【部分userid、partylist非法】的情况），要么正确，要么全错（报错）
+        /// </summary>
+        /// <param name="tma">TagUserAdd</param>
+        /// <param name="access_token"></param>
+        /// <returns>TagResult</returns>
+        public static TagResult TagAddMember(TagUserAdd tma,string access_token) {
+            string url = "https://qyapi.weixin.qq.com/cgi-bin/tag/addtagusers?access_token=" + access_token;
+            return JsonConvert.DeserializeObject<TagResult>(
+                General.CurlByDotNet(url, CurlMethod.POST, JsonConvert.SerializeObject(tma)));
+        }
+        /// <summary>
+        /// 获取标签成员
+        /// </summary>
+        /// <param name="tagID">标签ID</param>
+        /// <param name="access_token"></param>
+        /// <returns>TagMemberListResult</returns>
+        public static TagMemberListResult GetMemberByTag(int tagID,string access_token) {
+            string url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/tag/get?access_token={0}&tagid={1}", access_token, tagID);
+            return JsonConvert.DeserializeObject<TagMemberListResult>(
+                General.CurlByDotNet(url, CurlMethod.GET));
+        }
+        /// <summary>
+        /// 删除标签
+        /// </summary>
+        /// <param name="tagID"></param>
+        /// <param name="access_token"></param>
+        /// <returns>TagResult</returns>
+        public static TagResult DeleteTag(int tagID,string access_token) {
+            string url = string.Format("https://qyapi.weixin.qq.com/cgi-bin/tag/delete?access_token={0}&tagid={1}", access_token, tagID);
+            return JsonConvert.DeserializeObject<TagResult>(General.CurlByDotNet(url, CurlMethod.GET));
+        }
+        /// <summary>
+        /// 更新标签名字
+        /// </summary>
+        /// <param name="ti">TagItem</param>
+        /// <param name="access_token"></param>
+        /// <returns>TagResult</returns>
+        public static TagResult UpdateTagName(TagItem ti,string access_token) {
+            string url = "https://qyapi.weixin.qq.com/cgi-bin/tag/update?access_token=" + access_token;
+            return JsonConvert.DeserializeObject<TagResult>(
+                General.CurlByDotNet(url, CurlMethod.POST, JsonConvert.SerializeObject(ti)));
+        }
+        /// <summary>
+        /// 创建标签（创建的标签属于管理组，默认为加锁状态。加锁状态下只有本管理组才可以增删成员，解锁状态下其它管理组也可以增删成员）
+        /// </summary>
+        /// <param name="ti">TagItem</param>
+        /// <param name="access_token"></param>
+        /// <returns>CreateTagResult</returns>
+        public static CreateTagResult CreateTag(TagItem ti,string access_token) {
+            string url = "https://qyapi.weixin.qq.com/cgi-bin/tag/create?access_token=" + access_token;
+            return JsonConvert.DeserializeObject<CreateTagResult>(
+                General.CurlByDotNet(url, CurlMethod.POST, JsonConvert.SerializeObject(ti)));
+        }
+        /// <summary>
         /// 获取成员列表（详细信息）
         /// </summary>
         /// <param name="access_token"></param>
