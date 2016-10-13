@@ -45,11 +45,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccessTokenContainer.cs" />
-    <Compile Include="MailList\Department\DepartmentResult.cs" />
-    <Compile Include="MailList\MailListApi.cs" />
-    <Compile Include="MailList\Member\MemberResult.cs" />
-    <Compile Include="MailList\Tag\TagResult.cs" />
+    <Compile Include="AdvancedAPI\OAuth2.0\OAuth2Api.cs" />
+    <Compile Include="AdvancedAPI\OAuth2.0\OAuth2Result.cs" />
+    <Compile Include="CommonAPI\CommonAPI.cs" />
+    <Compile Include="AdvancedAPI\MailList\Department\DepartmentResult.cs" />
+    <Compile Include="AdvancedAPI\MailList\MailListApi.cs" />
+    <Compile Include="AdvancedAPI\MailList\Member\MemberResult.cs" />
+    <Compile Include="AdvancedAPI\MailList\Tag\TagResult.cs" />
+    <Compile Include="Entities\CommonResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Signature.cs" />
+    <Compile Include="Tencent\Cryptography.cs" />
+    <Compile Include="Tencent\Sample.cs" />
+    <Compile Include="Tencent\WXBizMsgCrypt.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FROST.Utility\FROST.Utility.csproj">
@@ -61,8 +69,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MailList\Readme.txt" />
+    <Content Include="AdvancedAPI\MailList\Readme.txt" />
+    <Content Include="readme.txt" />
+    <Content Include="Tencent\Readme.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
