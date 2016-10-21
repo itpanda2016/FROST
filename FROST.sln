@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FROST.Utility", "FROST.Utility\FROST.Utility.csproj", "{7CB9CD70-F6C2-4381-AB44-3F71D9C6E165}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FROST.WeixinMP", "FROST.WeixinMP\FROST.WeixinMP.csproj", "{1C4182B7-4391-42CA-97B5-3F54F6E6C1BE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEST2", "TEST2\TEST2.csproj", "{4FBACAB1-20A7-4DC1-BFAA-7FABEF4251F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEST", "TEST\TEST.csproj", "{F432F71E-85C0-4488-A1E4-FB4C6A860A50}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{4FBACAB1-20A7-4DC1-BFAA-7FABEF4251F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FBACAB1-20A7-4DC1-BFAA-7FABEF4251F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FBACAB1-20A7-4DC1-BFAA-7FABEF4251F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F432F71E-85C0-4488-A1E4-FB4C6A860A50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F432F71E-85C0-4488-A1E4-FB4C6A860A50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F432F71E-85C0-4488-A1E4-FB4C6A860A50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F432F71E-85C0-4488-A1E4-FB4C6A860A50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
