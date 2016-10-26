@@ -13,7 +13,7 @@ namespace FROST.Utility {
     /// </summary>
     public class OdbcDbHelper {
         //连接字符串
-        private static readonly string connStr = ConfigurationManager.ConnectionStrings["ConnString"].ToString();
+        private static readonly string connStr = ConfigurationManager.ConnectionStrings["Odbc"].ToString();
         /// <summary>
         /// 执行SQL命令，返回DataTable
         /// </summary>
