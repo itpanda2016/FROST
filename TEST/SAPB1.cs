@@ -18,7 +18,8 @@ namespace TEST {
 
         private void button1_Click(object sender, EventArgs e) {
             DataTable dt = new DataTable();
-            string sql = "select * from TEST01.OCRD";
+            //string sql = "select \"CardCode\",\"CardName\" from TEST01.OCRD";
+            string sql = "select * from TEST01.\"@HELLOHANA\"";
             dt = OdbcDbHelper.ExecuteDataTable(sql);
             dataGridView1.DataSource = dt;
         }
