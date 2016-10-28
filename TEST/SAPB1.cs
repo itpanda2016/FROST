@@ -23,15 +23,14 @@ namespace TEST {
         private void button1_Click(object sender, EventArgs e) {
             DataTable dt = new DataTable();
             //string sql = "select \"CardCode\",\"CardName\" from TEST01.OCRD";
-            string sql = "select * from TEST01.\"@HELLOHANA\"";
+            string sql = "select * from ECOLOGY.TEST";
             dt = OdbcDbHelper.ExecuteDataTable(sql);
             dataGridView1.DataSource = dt;
         }
 
         private void button2_Click(object sender, EventArgs e) {
-            T t = GetOA;
+
             //t.BeginInvoke(null,null);
-            t();
             //MessageBox.Show("绑定结束：" + DateTime.Now);
         }
 
@@ -43,28 +42,46 @@ namespace TEST {
 
         }
 
-        private void GetOA() {
-            string connString = ConfigurationManager.ConnectionStrings["OleDb"].ConnectionString;
-            OleDbConnection conn = new OleDbConnection();
-            //DataGridView dgv3 = new DataGridView();
+        
+
+        private void textBox1_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e) {
+            int i = -1;
             try {
-                conn.ConnectionString = connString;
-                conn.Open();
-                string sql = "select * from hrmresource";
-                using (OleDbDataAdapter oleDa = new OleDbDataAdapter(sql, conn)) {
-                    oleDa.Fill(_dtOA);
-                }
+                i = OdbcDbHelper.ExecuteNonQuery(textBox1.Text);
             }
-            catch (Exception ex) {
-                MessageBox.Show(ex.Message);
+            catch (Exception er) {
+                MessageBox.Show("执行失败：" + er.Message);
+                i = -1;
             }
-            finally {
-                conn.Close();
-                MessageBox.Show("线程结束：" + DateTime.Now);
-                dataGridView2.DataSource = _dtOA;
-                //dgv3.DataSource = _dtOA;
-                //this.Controls.Add(dgv3);
+            if (i >= 0)
+                MessageBox.Show("执行命令成功：" + i);
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e) {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e) {
+            int i = -1;
+            try {
+                string sql = "delete from ECOLOGY.TEST where \"CODE\" = " + textBox2.Text;
+                i = OdbcDbHelper.ExecuteNonQuery(sql);
             }
+            catch (Exception er) {
+                MessageBox.Show("执行失败：" + er.Message);
+                i = -1;
+            }
+            if (i >= 0)
+                MessageBox.Show("执行命令成功：" + i);
+        }
+
+        private void button3_Click_1(object sender, EventArgs e) {
+            string sql = "select \"NAME\" from ECOLOGY.TEST where \"CODE\" = 1";
+            MessageBox.Show("查询结果：" + (string)OdbcDbHelper.ExecuteScalar(sql));
         }
     }
 }

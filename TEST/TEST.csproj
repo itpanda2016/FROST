@@ -51,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OA.Designer.cs">
+      <DependentUpon>OA.cs</DependentUpon>
+    </Compile>
     <Compile Include="OAEcology.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -64,6 +70,9 @@
     <Compile Include="SAPB1.Designer.cs">
       <DependentUpon>SAPB1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="OA.resx">
+      <DependentUpon>OA.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

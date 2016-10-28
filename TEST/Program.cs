@@ -13,7 +13,8 @@ namespace TEST {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SAPB1());
+            //Application.Run(new SAPB1());
+            Application.Run(new OA());
         }
     }
 }
