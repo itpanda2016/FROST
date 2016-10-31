@@ -1,4 +1,12 @@
-﻿using System;
+﻿/**
+ *
+ * 说明：通讯录接口功能，包括部门、标签、成员
+ * 作者：sfrost
+ * 最后更新：
+ *      20161031，添加注释说明
+ * 
+ * */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccessTokenContainer.cs" />
+    <Compile Include="AdvancedAPI\Media\MediaApi.cs" />
+    <Compile Include="AdvancedAPI\Media\MediaResult.cs" />
     <Compile Include="AdvancedAPI\Message\MessageApi.cs" />
     <Compile Include="AdvancedAPI\Message\MessageResult.cs" />
     <Compile Include="AdvancedAPI\OAuth2.0\OAuth2Api.cs" />

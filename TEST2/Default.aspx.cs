@@ -49,6 +49,7 @@ namespace TEST2 {
             t4 = JsonConvert.DeserializeObject<Test4>(test);
             Response.Write(t4.DeviceId);
             Response.Write(AccessTokenContainer.GetToken(corpid, secret));
+
             //发送邮件示例，可用
             //FileInfo fileInfo1 = new FileInfo(@"D:\新建 Microsoft Excel 工作表.xlsx");
             //FileInfo fileInfo2 = new FileInfo(@"D:\新建 Microsoft Word 文档.docx");

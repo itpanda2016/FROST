@@ -19,5 +19,9 @@ namespace TEST {
         private void button1_Click(object sender, EventArgs e) {
             dataGridView1.DataSource = OleDbHelper.ExecuteDataTable("select * from hrmresource");
         }
+
+        private void button2_Click(object sender, EventArgs e) {
+
+        }
     }
 }
