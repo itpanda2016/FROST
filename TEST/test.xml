@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<app>
+  <table name="siteconfig">
+    <sendhour>14</sendhour>
+    <password>aaa</password>
+    <corpid>bbb</corpid>
+    <secret>ccc</secret>
+  </table>
+  <table name="log">
+    <path>C:\</path>
+  </table>
+  <table name="rule">
+    <row id="1">
+      <type>text</type>
+      <value>hello</value>
+    </row>
+    <row id="2">
+      <type>mpnews</type>
+      <value></value>
+    </row>
+  </table>
+</app>

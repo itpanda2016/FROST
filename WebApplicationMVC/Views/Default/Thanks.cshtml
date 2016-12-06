@@ -1,0 +1,41 @@
+﻿@model WebApplicationMVC.Models.GuestResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Thanks</title>
+</head>
+<body>
+    <div>
+        @{ 
+            try {
+                WebMail.SmtpServer = "smtp.qq.com";
+                WebMail.SmtpPort = 587;
+                WebMail.EnableSsl = true;
+                WebMail.UserName = "sfrost@qq.com";
+                WebMail.Password = "spxeuvapsszvbgid";
+                WebMail.From = "sfrost@qq.com";
+                WebMail.Send("sfrost@qq.com", "参会回执。", Model.Name + "的选择：" + ((Model.WillAttend ?? false) ? "将会参加" : "来不了。"));
+            }
+            catch (Exception er) {
+                @:<strong>非常抱歉，发送邮件失败了。<br />@er.Message</strong>
+            }
+        }
+        <h1>谢谢您的回复，@Model.Name。</h1>
+        <p>
+            @if (Model.WillAttend == true) {
+                @:非常棒！！！非常期待你的到来，我们将会等你一起开始活动。。
+            }
+            else {
+                @:虽然你无法参加，不过还是感谢你的回复。
+            }
+        </p>
+    </div>
+</body>
+</html>

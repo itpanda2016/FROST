@@ -1,0 +1,22 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <h1>@ViewBag.Greeting，MVC</h1>
+        <p>
+            我们将会开始一个新的活动，但在开始前可能需要收集您的一些私人信息
+        </p>
+        @Html.ActionLink("现在回复", "ReturnForm")
+    </div>
+</body>
+</html>

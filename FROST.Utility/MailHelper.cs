@@ -50,7 +50,7 @@ namespace FROST.Utility {
         /// </summary>
         private int _port;
         /// <summary>
-        /// 设置发送账号信息
+        /// 设置发送账号信息（QQ邮箱请使用安全码-20161130更新）
         /// </summary>
         /// <param name="mailAccount">发送邮件账号</param>
         /// <param name="password">账号密码</param>
@@ -112,7 +112,7 @@ namespace FROST.Utility {
                 client.Send(msg);
                 return true;
             }
-            catch (System.Net.Mail.SmtpException ex) {
+            catch (System.Net.Mail.SmtpException) {
                 return false;
             }
         }

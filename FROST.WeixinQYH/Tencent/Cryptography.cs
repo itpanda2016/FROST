@@ -5,9 +5,13 @@ using System.Text;
 using System.Security.Cryptography;
 using System.IO;
 using System.Net;
-namespace Tencent
+
+/// <summary>
+/// Tencent 官方加密类
+/// </summary>
+namespace FROST.WeixinQYH.Tencent
 {
-    class Cryptography
+    public class Cryptography
     {
         public static UInt32 HostToNetworkOrder(UInt32 inval)
         {

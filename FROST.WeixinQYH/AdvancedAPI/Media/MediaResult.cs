@@ -4,16 +4,24 @@ using System.Linq;
 using System.Text;
 
 namespace FROST.WeixinQYH {
+    /// <summary>
+    /// 通用返回结果（删除永久素材）
+    /// </summary>
+    public class MaterialResult {
+        public string errcode { get; set; }
+        public string errmsg { get; set; }
+    }
 
-    public class Rootobject {
+    /// <summary>
+    /// 获取永久素材，图文类消息返回结果
+    /// </summary>
+    public class MaterialMpNewsResult {
         public string type { get; set; }
         public Mpnews mpnews { get; set; }
     }
-
     public class Mpnews {
         public Article[] articles { get; set; }
     }
-
     public class ArticleSimple {
         public string thumb_media_id { get; set; }
         public string title { get; set; }
@@ -23,7 +31,6 @@ namespace FROST.WeixinQYH {
         public int show_cover_pic { get; set; }
         public string content { get; set; }
     }
-
 
     /// <summary>
     /// （返回）当前管理组指定类型的素材列表，是详情

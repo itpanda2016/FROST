@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
-namespace MsgCryptTest
+
+/// <summary>
+/// Tencent 官方DEMO
+/// </summary>
+namespace FROST.WeixinQYH.MsgCryptTest
 {
-    class Sample
+    public class Sample
     {
         static void Main(string[] args)
         {

@@ -104,9 +104,34 @@ namespace FROST.Utility {
         public static object ExecuteScalar(string commandText, CommandType commandType) {
             return ExecuteScalar(commandText, commandType, null);
         }
-
         /// <summary>
-        /// 执行查询，并返回受影响的行数
+        /// 执行【事务】查询（UPDATE、INSERT 、DELETE），并返回受影响的行数
+        /// 非UID操作返回-1；事务回滚也返回-1；
+        /// </summary>
+        /// <param name="cmdText"></param>
+        /// <param name="parameters"></param>
+        /// <param name="trans"></param>
+        /// <returns></returns>
+        public static int ExecuteNonQuery(string cmdText,SqlParameter[] parameters,bool trans = true) {
+            int ret = -2;
+            using (SqlConnection conn = new SqlConnection(connString)) {
+                //当前连接创建新的事务
+                SqlTransaction st = conn.BeginTransaction();
+                using (SqlCommand cmd = new SqlCommand(cmdText, conn)) {
+                    if (parameters != null)
+                        cmd.Parameters.AddRange(parameters);
+                    ret = cmd.ExecuteNonQuery();
+                }
+                try {
+                    st.Commit();
+                }catch(Exception) {
+                    st.Rollback();
+                }
+            }
+            return ret;
+        }
+        /// <summary>
+        /// 执行查询（UPDATE、INSERT 、DELETE），并返回受影响的行数
         /// </summary>
         /// <param name="cmdText"></param>
         /// <param name="cmdType"></param>
