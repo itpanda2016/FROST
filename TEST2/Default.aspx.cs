@@ -20,6 +20,10 @@ namespace TEST2 {
             MyEmailSender mes = new MyEmailSender();
             log.Info("ssss");
             Response.Write(SendMail(mes));
+            EcanRMB rmb = new EcanRMB();
+            decimal amount;
+            amount = 32123435.34m;
+            Response.Write(rmb.CmycurD(amount));
         }
         public bool SendMail(IEmailSender ies) {
             return ies.Send("a");

@@ -123,6 +123,10 @@ namespace LanguageFeatures.Controllers {
             }
             return View("Result", (object)retSB.ToString());
         }
+        /// <summary>
+        /// 找出其中3个最高价的
+        /// </summary>
+        /// <returns></returns>
         public ViewResult FindProducts() {
             Product[] products = {
                 new Product {Name="苹果",Category="水果",Price=3.9m },
@@ -131,16 +135,63 @@ namespace LanguageFeatures.Controllers {
                 new Product {Name="白菜",Category="蔬菜",Price=3.5m },
                 new Product {Name="土豆",Category="蔬菜",Price=3.3m }
             };
-            Product[] foundProducts = new Product[3];
-            Array.Sort(products, (item1, item2) => {
-                return Comparer<decimal>.Default.Compare(item1.Price, item2.Price);
-            });
-            Array.Copy(products, foundProducts, 3);
+            //原始扩展方法（未使用LINQ）
+            //Product[] foundProducts = new Product[3];
+            ////对数组内容进行排序
+            //Array.Sort(products, (item1, item2) => {
+            //    return Comparer<decimal>.Default.Compare(item1.Price, item2.Price);
+            //});
+            ////获取前3项作为结果
+            //Array.Copy(products, foundProducts, 3);
+            ////创建返回结果
+            //StringBuilder result = new StringBuilder();
+            //foreach (Product p in foundProducts) {
+            //    result.AppendFormat("Price：{0}   \n\r", p.Price);
+            //}
+            //使用LINQ语法（简单不高效）
+            //var foundProducts = from match in products
+            //                    orderby match.Price descending
+            //                    select new {
+            //                        match.Name,
+            //                        match.Price
+            //                    };
+            //StringBuilder result = new StringBuilder();
+            //int count = 0;
+            //foreach (var item in foundProducts) {
+            //    result.AppendFormat("Price:{0}", item.Price);
+            //    if (++count == 3)
+            //        break;
+            //}
+            var foundProducts = products.OrderByDescending(
+                e => e.Price).Take(3)
+                .Select(e => new {
+                    e.Name,
+                    e.Price
+                });
+            //上述LINQ扩展方法，在77页的查询表中，含有延迟的方法，如果在此处变更源数据内容，则会影响下述枚举值。
+            products[4] = new Product { Name = "黄瓜", Category = "蔬菜", Price = 7.1m };
             StringBuilder result = new StringBuilder();
-            foreach (Product p in foundProducts) {
-                result.AppendFormat("Price：{0}   \n\r", p.Price);
+            foreach (var item in foundProducts) {
+                result.AppendFormat("Price:{0}", item.Price);
             }
             return View("Result", (object)result.ToString());
         }
+        /// <summary>
+        /// 非延迟的扩展方法
+        /// </summary>
+        /// <returns></returns>
+        public ViewResult SumProducts() {
+            Product[] products = {
+                new Product {Name="苹果",Category="水果",Price=3.9m },
+                new Product {Name="香蕉",Category="水果",Price=4.0m },
+                new Product {Name="葡萄",Category="水果",Price=5.0m },
+                new Product {Name="白菜",Category="蔬菜",Price=3.5m },
+                new Product {Name="土豆",Category="蔬菜",Price=3.3m }
+            };
+            decimal totalPrice = products.Sum(e => e.Price);    //非延迟的扩展方法，结果不会受下面的改变所影响
+            products[0] = new Product { Name = "苹果", Category = "水果", Price = 0.9m };
+            return View("Result", (object)totalPrice.ToString());
+        }
+
     }
 }

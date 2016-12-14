@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EcanRMB.cs" />
     <Compile Include="Encrypt.cs" />
     <Compile Include="General.cs" />
     <Compile Include="MailHelper.cs" />
