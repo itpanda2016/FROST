@@ -9,7 +9,7 @@ using NPOI.SS.UserModel;    //载入基础操作库
 using NPOI.HSSF.UserModel;  //Excel2003版
 using NPOI.XSSF.UserModel;  //Excel2007版
 using System.Data;
-using NPOI.HPSF;    //2003的Excel：可以使用DocumentSummaryInformation dsi = PropertySetFactory.CreateDocumentSummaryInformation();和SummaryInformation si = PropertySetFactory.CreateSummaryInformation();
+using NPOI.HPSF;    //2003的Excel：可以使用文档属性DocumentSummaryInformation dsi = PropertySetFactory.CreateDocumentSummaryInformation();和SummaryInformation si = PropertySetFactory.CreateSummaryInformation();
 
 namespace FROST.Utility {
     /// <summary>
@@ -46,7 +46,7 @@ namespace FROST.Utility {
             ISheet sheet = wk.GetSheetAt(0);    //获取第0张工作表
             IRow row = sheet.GetRow(0);     //获取表头（第1行），然后以此设置 dt 的字段名称为第1行的内容
             for (int i = 0; i < row.Cells.Count; i++) {
-                DataColumn dc = new DataColumn(row.Cells[i].StringCellValue);
+                DataColumn dc = new DataColumn(GetCellValue(row.Cells[i]));
                 dt.Columns.Add(dc);
             }
             //将表头也添加到dt中，因为输出的时候也需要

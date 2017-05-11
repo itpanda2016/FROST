@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-
+using FROST.Utility;
 namespace TestTransaction {
     public partial class Form1 : Form {
         public Form1() {
@@ -16,17 +16,9 @@ namespace TestTransaction {
         }
 
         private void button1_Click(object sender, EventArgs e) {
-            string strCompany = "";
-            OAHrmServiceReference.HrmServicePortTypeClient server = new OAHrmServiceReference.HrmServicePortTypeClient();
-            try {
-                //server.SynSubCompany("10.1.1.73", strCompany);
-                server.checkUser("10.1.1.73", "test", "01764");
-            }
-            catch (Exception er) {
-                MessageBox.Show(er.Message);
-            }
-            finally {
-                MessageBox.Show(strCompany);
+            DialogResult ret = openFileDialog1.ShowDialog();
+            if (ret == DialogResult.OK) {
+                DataTable dt = NpoiHelper.ExcelToDataTable(openFileDialog1.FileName);
             }
         }
 
