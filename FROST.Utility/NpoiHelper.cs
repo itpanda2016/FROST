@@ -55,7 +55,7 @@ namespace FROST.Utility {
             for (int i = 0; i < row.Cells.Count; i++) {
                 rowHead[i] = GetCellValue(row.Cells[i]);
             }
-            dt.Rows.Add(rowHead);
+            //dt.Rows.Add(rowHead);     //上面获取到了表头，但现在暂时不添加，因为DT的列名就是表头了（20170511）
             //开始处理所有行的数据，从第2(1)行开始
             DataRow drHave = dt.NewRow(); //创建一个有1-6列内容的字段，用来存储重复的行数据
             for (int k = 1; k <= sheet.LastRowNum; k++) {

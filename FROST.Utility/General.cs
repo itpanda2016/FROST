@@ -54,7 +54,8 @@ namespace FROST.Utility {
             if (jsonData != null) {
                 //这儿必须要设置utf8，如果用default就会出问题
                 byte[] bytes = Encoding.UTF8.GetBytes(jsonData);
-                webRequest.ContentType = "application/x-www-form-urlencoded";
+                //webRequest.ContentType = "application/x-www-form-urlencoded";   //接入纷享销客前
+                webRequest.ContentType = "application/json";
                 webRequest.ContentLength = bytes.Length;
                 Stream postData = webRequest.GetRequestStream();
                 postData.Write(bytes, 0, bytes.Length);
