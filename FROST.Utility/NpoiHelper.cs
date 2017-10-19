@@ -42,7 +42,6 @@ namespace FROST.Utility {
             else {
                 wk = new HSSFWorkbook(fs);
             }
-
             ISheet sheet = wk.GetSheetAt(0);    //获取第0张工作表
             IRow row = sheet.GetRow(0);     //获取表头（第1行），然后以此设置 dt 的字段名称为第1行的内容
             for (int i = 0; i < row.Cells.Count; i++) {

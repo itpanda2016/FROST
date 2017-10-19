@@ -7,7 +7,12 @@ using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Net;
 using System.IO;
+using System.Security.Cryptography.X509Certificates;
+using System.Net.Security;
 
+/// <summary>
+/// 通用方法
+/// </summary>
 namespace FROST.Utility {
     /// <summary>
     /// Curl提交数据方式
@@ -48,6 +53,7 @@ namespace FROST.Utility {
         /// <param name="jsonData">数据主体，可为空</param>
         /// <returns></returns>
         public static string CurlByDotNet(string uri, CurlMethod method, string jsonData = null) {
+            //HTTPS证书无效处理方式，见SBO的Servicelayer开发DEMO
             Uri codeUrl = new Uri(uri);
             HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(codeUrl);
             webRequest.Method = method.ToString();
@@ -66,6 +72,7 @@ namespace FROST.Utility {
             string retString = srResponse.ReadToEnd();
             return retString;
         }
+        
         /// <summary>
         /// 获取农历时间
         /// </summary>

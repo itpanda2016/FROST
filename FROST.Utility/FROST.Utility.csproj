@@ -70,6 +70,7 @@
     <Compile Include="EcanRMB.cs" />
     <Compile Include="Encrypt.cs" />
     <Compile Include="General.cs" />
+    <Compile Include="Sufei\HttpHelper.cs" />
     <Compile Include="MailHelper.cs" />
     <Compile Include="MD5Provider.cs" />
     <Compile Include="MsSQLHelper.cs" />
@@ -83,6 +84,9 @@
     <Fakes Include="Fakes\NPOI.fakes" />
     <None Include="packages.config" />
     <None Include="readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sufei\readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
