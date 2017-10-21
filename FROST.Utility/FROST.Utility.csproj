@@ -72,7 +72,6 @@
     <Compile Include="General.cs" />
     <Compile Include="Sufei\HttpHelper.cs" />
     <Compile Include="MailHelper.cs" />
-    <Compile Include="MD5Provider.cs" />
     <Compile Include="MsSQLHelper.cs" />
     <Compile Include="NpoiHelper.cs" />
     <Compile Include="OdbcDbHelper.cs" />
