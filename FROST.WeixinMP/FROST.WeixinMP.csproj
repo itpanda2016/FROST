@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\PiedPiper\PiedPiper\packages\Newtonsoft.Json.10.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,10 +43,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdvancedAPI\MailList\MailListApi.cs" />
+    <Compile Include="AdvancedAPI\MailList\Tag\TagResult.cs" />
+    <Compile Include="AdvancedAPI\OtherApi.cs" />
+    <Compile Include="AdvancedAPI\Ticket\TicketAPi.cs" />
+    <Compile Include="AdvancedAPI\Ticket\TicketResult.cs" />
+    <Compile Include="ErrorResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="readme.md" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\FROST.Utility\FROST.Utility.csproj">
+      <Project>{7cb9cd70-f6c2-4381-ab44-3f71d9c6e165}</Project>
+      <Name>FROST.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
