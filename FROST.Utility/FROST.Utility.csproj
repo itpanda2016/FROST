@@ -38,6 +38,9 @@
     <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="mysql.data">
+      <HintPath>..\..\..\..\Downloads\mysql-for-visualstudio-1.2.7-noinstall\v45\mysql.data.dll</HintPath>
+    </Reference>
     <Reference Include="NPOI, Version=2.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
       <HintPath>..\packages\NPOI.2.2.1\lib\net40\NPOI.dll</HintPath>
       <Private>True</Private>
@@ -70,6 +73,7 @@
     <Compile Include="EcanRMB.cs" />
     <Compile Include="Encrypt.cs" />
     <Compile Include="General.cs" />
+    <Compile Include="MySQLHelper.cs" />
     <Compile Include="Sufei\HttpHelper.cs" />
     <Compile Include="MailHelper.cs" />
     <Compile Include="MsSQLHelper.cs" />

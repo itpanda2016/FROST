@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdvancedAPI\MailList\MailListApi.cs" />
+    <Compile Include="AdvancedAPI\MailList\Member\MemberResult.cs" />
     <Compile Include="AdvancedAPI\MailList\Tag\TagResult.cs" />
     <Compile Include="AdvancedAPI\OtherApi.cs" />
     <Compile Include="AdvancedAPI\Ticket\TicketAPi.cs" />

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace FROST.WeixinMP.AdvancedAPI.MailList.Tag {
+namespace FROST.WeixinMP {
     public class TagListResult {
         public TagItem[] Tags { get; set; }
     }

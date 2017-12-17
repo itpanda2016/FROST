@@ -34,7 +34,7 @@ namespace FROST.Utility {
         public void Info(string logMsg) {
             if (!isDebug)
                 return;
-            File.AppendAllText(this.logFileName, logMsg + "\r\n");
+            File.AppendAllText(this.logFileName, "【" + DateTime.Now.ToString() + "】" + logMsg + "\r\n");
         }
     }
 }

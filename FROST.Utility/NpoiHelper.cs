@@ -73,32 +73,35 @@ namespace FROST.Utility {
         /// 暂时这样，后面再优化：20160928
         /// </summary>
         /// <param name="dt"></param>
-        /// <param name="strFileName">不含扩展名</param>
-        public static void DataTableToExcel(DataTable dt, string strFileName, ExcelVersion ver,bool hasColumnName = true) {
+        /// <param name="strFileName">包括路径，不含扩展名</param>
+        public static void DataTableToExcel(DataTable dt, string strFileName, ExcelVersion ver = ExcelVersion.xlsx) {
             //不自动追加扩展名
             string filename = strFileName;
             //DocumentSummaryInformation、SummaryInformation仅支持2003
             IWorkbook hwk = null;    //IWorkbook无属性设置
-            if (ver == ExcelVersion.xls) {
+            if (ver == ExcelVersion.xls ) {
                 hwk = new HSSFWorkbook();
+                filename = filename + ".xls";
             }
             else if (ver == ExcelVersion.xlsx) {
                 hwk = new XSSFWorkbook();
+                filename = filename + ".xlsx";
             }
-            ISheet sheet = hwk.CreateSheet("sheet1（" + dt.Rows.Count.ToString() + "）");
+            ISheet sheet = hwk.CreateSheet("Sheet1");
             sheet.DefaultRowHeight = 20 * 20;   //设置表格默认行高
             sheet.SetColumnWidth(0, 12 * 256);  //列宽：使用填写的值 * 256（tip数），得出实际列宽为【填写的值】
             sheet.SetColumnWidth(1, 18 * 256);  //列宽：使用填写的值 * 256（tip数），得出实际列宽为【填写的值】
 
             int isHeader = 0;
-            if (hasColumnName) {
-                IRow rowHeader = sheet.CreateRow(isHeader);
-                for (int j = 0; j < dt.Columns.Count; j++) {
-                    ICell cell = rowHeader.CreateCell(j);
-                    cell.SetCellValue(dt.Columns[j].ColumnName);
-                }
-                isHeader = 1;
-            }
+            //dt含有表头先去掉bool hasColumnName = true
+            //if (hasColumnName) {
+            //    IRow rowHeader = sheet.CreateRow(isHeader);
+            //    for (int j = 0; j < dt.Columns.Count; j++) {
+            //        ICell cell = rowHeader.CreateCell(j);
+            //        cell.SetCellValue(dt.Columns[j].ColumnName);
+            //    }
+            //    isHeader = 1;
+            //}
             for (int i = 0; i < dt.Rows.Count; i++) {
                 IRow row = sheet.CreateRow(i +isHeader);
                 for (int k = 0; k < dt.Columns.Count; k++) {

@@ -5,9 +5,12 @@
  *      1、安装OracleXE112_Win32客户端
  *      2、Provider=OraOLEDB.Oracle.1;Data Source=IP:PORT/SERVERNAME;Password=;User ID=
  *      3、报错：“未在本地计算机上注册 oraoledb.oracle.1”等信息，需手工注册OracleXE安装目录下的OraOledb11.dll文件（regsvr32）
+ * 适用于Mysql
+ *      1、下载mysql for visualstudio驱动，引用mysql.data.dll
+ *      2、https://dev.mysql.com/downloads/windows/visualstudio/
  *      
  * */
-
+ 
 using System.Data;
 using System.Data.OleDb;
 using System.Configuration;
