@@ -713,8 +713,6 @@ namespace FROST.Utility {
 
         #endregion
 
-
-
     }
 
 }
